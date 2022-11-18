@@ -14,5 +14,6 @@ code {
 }
 
 img {max-width: 250px;max-height: 200px;}
-.card{margin-left: 5% !important;}
+.card{margin-left: 5% !important;min-width: 300px;min-height: 420px;}
 .tamanho {width: 18rem;}
+.cardsmargin{margin-left: 5%;}

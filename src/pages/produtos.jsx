@@ -17,6 +17,7 @@ export const getServerSideProps = async () => {
 
 export default function Produtos(){
     const [produtos, setProdutos] = useState([])
+	const [consulta, setConsulta] = useState("");
 
 	useEffect(() => {
 		api
@@ -29,10 +30,29 @@ export default function Produtos(){
 			})
 	}, [])
     
+	const filtro = (item) => {
+		return item.filter((item) =>
+		  keys.some((key) => item[key].toLowerCase().includes(consultaGeral))
+		);
+	  };
+	  const keys = ["titulo"];
+
+	  const consultaGeral = consulta.toLowerCase();
+
     return(
         <div><h1>Bem-vindo aos Produtos</h1>
-       {
-				produtos.map(produto => {
+		 <form className="d-flex" role="search">
+          <input
+            className="form-control filtro"
+            type="search"
+            placeholder="Pesquisar"
+            aria-label="Search"
+            onChange={(e) => setConsulta(e.target.value)}
+          />
+        </form>
+      <div className="d-flex">
+	 {
+				filtro(produtos).map(produto => {
 					return (          
 						<div key={produto._id}>
 							<CardProdutos id={produto._id} titulo={produto.titulo} preco={produto.preco}  descricao={produto.descricao} img={produto.img} />
@@ -40,6 +60,8 @@ export default function Produtos(){
 					)
 				})
 			}
+
+	  </div>
         </div>
     )
 }
