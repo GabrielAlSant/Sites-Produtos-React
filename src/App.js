@@ -8,6 +8,7 @@ import Teste from './pages/teste';
 import Produtos from './pages/produtos';
 import CardProdutos from './components/cardProdutos';
 import ProdutoSolo from './components/produtoSolo';
+import Header from './components/header';
 
 
 function App() {

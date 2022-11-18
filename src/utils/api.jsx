@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-baseURL:"https://wild-tan-fossa-fez.cyclic.app"
+baseURL:"https://bd-produtos-react-app.cyclic.app"
 
 })
 

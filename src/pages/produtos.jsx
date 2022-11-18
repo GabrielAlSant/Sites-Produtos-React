@@ -3,6 +3,7 @@ import axios from "axios";
 import CardProdutos from "../components/cardProdutos";
 import api from "../utils/api";
 import { Outlet, Link  } from "react-router-dom";
+import Header from './../components/header';
 
 
 export default function Produtos(){
@@ -30,7 +31,8 @@ export default function Produtos(){
 	  const consultaGeral = consulta.toLowerCase();
 
     return(
-        <div><h1>Bem-vindo aos Produtos</h1>
+        <div>
+			<Header />
 		 <form className="" role="search">
           <input
             className="form-control filtro"

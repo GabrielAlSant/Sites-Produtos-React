@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/header";
 
 export default function Home(){
     return (
-    <div><h1>Olá Mundo!</h1>
-      <Link to="/produtos">Produtos</Link>
+    <div>
+    <Header />
+      
     </div>
     )
 }
+
