@@ -2,18 +2,8 @@ import React,{useEffect, useState} from "react";
 import axios from "axios";
 import CardProdutos from "../components/cardProdutos";
 import api from "../utils/api";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link  } from "react-router-dom";
 
-export const getServerSideProps = async () => {
-    const response = await axios.get('http://localhost:3001/');
-    const props = await response.descricao;
-   
-    return {
-      props: {
-        props
-      }
-    };
-  };
 
 export default function Produtos(){
     const [produtos, setProdutos] = useState([])
@@ -54,8 +44,8 @@ export default function Produtos(){
 	 {
 				filtro(produtos).map(produto => {
 					return (          
-						<div key={produto._id}>
-							<CardProdutos id={produto._id} titulo={produto.titulo} preco={produto.preco}  descricao={produto.descricao} img={produto.img} />
+						<div key={produto.id}>
+							<CardProdutos id={produto.id} titulo={produto.titulo} preco={produto.preco}  descricao={produto.descricao} img={produto.img} />
 						</div>       
 					)
 				})
