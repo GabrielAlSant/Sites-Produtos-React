@@ -41,7 +41,7 @@ export default function Produtos(){
 
     return(
         <div><h1>Bem-vindo aos Produtos</h1>
-		 <form className="d-flex" role="search">
+		 <form className="" role="search">
           <input
             className="form-control filtro"
             type="search"
