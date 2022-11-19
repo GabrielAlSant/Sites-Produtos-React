@@ -33,7 +33,7 @@ export default function Produtos(){
     return(
         <div>
 			<Header />
-		 <form className="" role="search">
+		 <form className="container mt-4" role="search">
           <input
             className="form-control filtro"
             type="search"
@@ -42,7 +42,7 @@ export default function Produtos(){
             onChange={(e) => setConsulta(e.target.value)}
           />
         </form>
-      <div className="d-flex">
+      <div className="d-flex container">
 	 {
 				filtro(produtos).map(produto => {
 					return (          
