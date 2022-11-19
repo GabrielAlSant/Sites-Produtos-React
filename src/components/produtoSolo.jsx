@@ -24,15 +24,23 @@ export default function ProdutoSolo() {
 	return (
 		<div >
 			<Header></Header>
-			<div key={produtos.id}>
-			<img src={produtos.img}></img>
-					<h2 class="tituloprodutos">{produtos.titulo}</h2>
-					<h3 class="desc">{produtos.descricao}</h3>			
-			<div class="conteudo">
-				{produtos.preco}
-			</div>			
+			<div className='text-center mt-4 mb-3 container'>
+			<div className="cardsolo" key={produtos.id}>
+         <div className="row g-0">
+    <div className="col-md-4">
+      <img src={produtos.img} className="imgsolo" alt="..." />
+    </div>
+    <div className="col-md-8">
+      <div className="card card-body">
+        <h5 className="card-title">{produtos.titulo}</h5>
+        <p className="card-text">{produtos.descricao}</p>
+        <p className="card-text"><small className="text-muted">{produtos.preco}</small></p>
+      </div>
+    </div>
+   </div>
+   </div>
 			</div>
-          
+          <a href='/produtos'>Voltar</a>
 		</div>
 	)
 }

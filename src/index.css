@@ -13,15 +13,30 @@ code {
     monospace;
 }
 
-img {max-width: 250px;max-height: 200px;}
-.card{margin-left: 5% !important;min-width: 300px;min-height: 420px;}
+.imgtodos {max-width: 250px;max-height: 200px;}
+.card{margin-left: 15% !important;min-width: 300px;min-height: 420px;}
 .tamanho {width: 18rem;}
 .cardsmargin{margin-left: 5%;}
 
+.imgsolo{
+  height: 400px !important;
+  width: 500px !important;
+}
+.col-md-8 .card-body{
+  border: 3px solid black;
+  margin-top: 10%!important;
+}
+.col-md-8 .card-body .card-title{
+  font-size: 30px;
+  padding-bottom: 1rem;
+}
 .display-in{
   display: flex;
+  margin-left:5%;
+  max-width: 1200px;
 }
 
 @media (max-width: 600px) {
-  .display-in{display:inline !important;align-items: center;margin-left: 8% !important;}
+ .display-in{display:inline !important;}
+  .card{margin-left: 20%;}
 }
