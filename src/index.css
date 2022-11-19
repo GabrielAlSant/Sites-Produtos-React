@@ -36,6 +36,9 @@ code {
   margin-left:5%;
   max-width: 1200px;
 }
+.margin-r{
+  margin-right: 15%;
+}
 
 @media (max-width: 600px) {
  .display-in{display:inline !important;}
