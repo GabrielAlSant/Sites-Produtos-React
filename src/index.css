@@ -39,5 +39,13 @@ code {
 
 @media (max-width: 600px) {
  .display-in{display:inline !important;}
-  .card{margin-left: 20%;}
+.display-in .card{margin-left: 20%;}
+  .imgsolo{
+    margin-top: 10%;
+    height: 300px !important;
+    width: 350px !important;
+  }
+ .cardsolo{
+  margin-right: 15%;
+ }
 }
