@@ -23,5 +23,5 @@ img {max-width: 250px;max-height: 200px;}
 }
 
 @media (max-width: 600px) {
-  .display-in{display:inline !important;align-items: center;margin-left: 12%;}
+  .display-in{display:inline !important;align-items: center;margin-left: 8% !important;}
 }
