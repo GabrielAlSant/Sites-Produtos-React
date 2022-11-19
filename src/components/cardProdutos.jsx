@@ -10,7 +10,7 @@ export default function CardProdutos(props){
     <h5 className="card-title">{props.titulo}</h5>
     <p className="card-text">{props.descricao}</p>
     <p className="card-text">preço:{props.preco}</p>
-    <a href={props.id}><div>Ver</div></a>
+    <a href={`/produto/${props.id}`}><div>Ver</div></a>
   </div>
 </div>
     )
