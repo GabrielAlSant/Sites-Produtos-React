@@ -28,10 +28,10 @@ export default function ProdutoSolo() {
 			<div className="cardsolo" key={produtos.id}>
          <div className="row g-0">
     <div className="col-md-4">
-      <img src={produtos.img} className="imgsolo" alt="..." />
+      <img src={produtos.img} className="imgprodutosolo" alt="..." />
     </div>
     <div className="col-md-8">
-      <div className="card card-body">
+      <div className="card card-body mt-4">
         <h5 className="card-title">{produtos.titulo}</h5>
         <p className="card-text">{produtos.descricao}</p>
         <p className="card-text"><small className="text-muted">{produtos.preco}</small></p>
@@ -40,7 +40,7 @@ export default function ProdutoSolo() {
    </div>
    </div>
 			</div>
-          <a href='/produtos'>Voltar</a>
+          <a href='/produtos' className='container'><button class="end btn btn-dark">Voltar</button></a>
 		</div>
 	)
 }

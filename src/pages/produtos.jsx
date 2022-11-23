@@ -42,8 +42,8 @@ export default function Produtos(){
             onChange={(e) => setConsulta(e.target.value)}
           />
         </form>
-      <div className="">
-		<div className="display-in">
+   
+		<div className="container">
 	 {
 				filtro(produtos).map(produto => {
 					return (          
@@ -54,7 +54,6 @@ export default function Produtos(){
 				})
 			}
    </div>
-	  </div>
         </div>
     )
 }

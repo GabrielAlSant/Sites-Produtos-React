@@ -13,42 +13,10 @@ code {
     monospace;
 }
 
-.imgtodos {max-width: 250px;max-height: 200px;}
-.card{margin-left: 15% !important;min-width: 300px;min-height: 420px;}
-.tamanho {width: 18rem;}
-.cardsmargin{margin-left: 5%;}
+.imgprodutos{width: 150px; height: 100px; max-width: 150px;}
 
-.imgsolo{
-  margin-top: 20%;
-  height: 400px !important;
-  width: 500px !important;
-}
-.col-md-8 .card-body{
-  border: 3px solid black;
-  margin-top: 10%!important;
-}
-.col-md-8 .card-body .card-title{
-  font-size: 30px;
-  padding-bottom: 1rem;
-}
-.display-in{
-  display: flex;
-  margin-left:5%;
-  max-width: 1200px;
-}
-.margin-r{
-  margin-right: 15%;
+.imgprodutosolo{
+  width: 300px;
+  height: 250px;
 }
 
-@media (max-width: 600px) {
- .display-in{display:inline !important;}
-.display-in .card{margin-left: 20%;}
-  .imgsolo{
-    margin-top: 10%;
-    height: 300px !important;
-    width: 350px !important;
-  }
- .cardsolo{
-  margin-right: 15%;
- }
-}
