@@ -6,7 +6,7 @@ export default function Home(){
     return (
     <div>
     <Header />
-    <div class="card margin-r mt-4">
+    <div class="container card margin-r mt-4">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
