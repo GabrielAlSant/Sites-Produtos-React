@@ -1,7 +1,7 @@
 let cacheName = "noticias-app";
 let filesToCache = ["/", "/index.html", 
-                "/css/style.css", "/js/main.js", "https://fonts.googleapis.com/css?family=Poppins&display=swap",
-                "/pages/fallback.html"];
+                "../pages/index.css", "/main.js", "https://fonts.googleapis.com/css?family=Poppins&display=swap",
+                "../pages/index.js"];
 self.addEventListener("install", (e) => {
   e.waitUntil(
     caches.open(cacheName).then(function (cache) {
