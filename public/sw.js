@@ -1,7 +1,10 @@
 let cacheName = "noticias-app";
 let filesToCache = ["/", "/index.html", 
-                "../pages/index.css", "/main.js", "https://fonts.googleapis.com/css?family=Poppins&display=swap",
-                "../pages/index.js"];
+                , "/main.js", "https://fonts.googleapis.com/css?family=Poppins&display=swap",
+                "/pages/fallback.html"];
+
+/* inicializando a service worker e fazendo o 
+download do conteúdo da aplicação */
 self.addEventListener("install", (e) => {
   e.waitUntil(
     caches.open(cacheName).then(function (cache) {
@@ -10,7 +13,7 @@ self.addEventListener("install", (e) => {
   );
 });
 
-
+/* disponibilizando o conteudo quando estiver offline */
 self.addEventListener("fetch", (e) => {
     const req = e.request;
     const url = new URL(req.url);
