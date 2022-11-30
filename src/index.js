@@ -14,5 +14,4 @@ root.render(
   </React.StrictMode>
   </AuthContextProvider>
 );
-
 reportWebVitals();
