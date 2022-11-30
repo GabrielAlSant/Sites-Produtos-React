@@ -1,78 +1,49 @@
-var STATIC_CACHE_NAME = "gfg-pwa";
-var DYNAMIC_CACHE_NAME = "dynamic-gfg-pwa";
-  
-// Add Routes and pages using React Browser Router
-var urlsToCache = ["/", "/search", "/aboutus", "/profile", "/pages/fallback.html"];
-  
-// Install a service worker
+const OFFLINE_VERSION = 1;
+const CACHE_NAME = "offline";
+// Customize this with a different URL if needed.
+const OFFLINE_URL = "/pages/fallback.html";
+
 self.addEventListener("install", (event) => {
-  
-  // Perform install steps
-  event.waitUntil(
-    caches.open(STATIC_CACHE_NAME).then(function (cache) {
-      console.log("Opened cache");
-      return cache.addAll(urlsToCache);
-    })
-  );
+    event.waitUntil(
+        (async () => {
+            const cache = await caches.open(CACHE_NAME);
+            // Setting {cache: 'reload'} in the new request will ensure that the response
+            // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
+            await cache.add(new Request(OFFLINE_URL, { cache: "reload" }));
+        })()
+    );
 });
-  
-// Cache and return requests
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cacheRes) => {
-      return (
-        cacheRes ||
-        fetch(event.request).then((fetchRes) => {
-          return caches.open(DYNAMIC_CACHE_NAME).then((cache) => {
-            cache.put(event.request.url, fetchRes.clone());
-            return fetchRes;
-          }).catch((event.request)=caches.match('/pages/fallback.html'))
-        })
-      );
-    })
-  );
-});
-  
-// Update a service worker
+
 self.addEventListener("activate", (event) => {
-  var cacheWhitelist = ["gfg-pwa"];
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+    // Tell the active service worker to take control of the page immediately.
+    self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cacheRes) => {
-      return (
-        cacheRes ||
-        fetch(event.request).then((fetchRes) => {
-          return caches.open(DYNAMIC_CACHE_NAME)
-          .then((cache) => {
-            cache.put(event.request.url, fetchRes.clone());
-            return fetchRes;
-          });
-        })
-      );
-    })
-  );
-  if (!navigator.onLine) {
-    if (event.request.url === 
-        "http://localhost:3000/") {
-      event.waitUntil(
-        self.registration.showNotification("Internet", {
-          body: "internet not working",
-          icon: "logo.png",
-        })
-      );
+    // We only want to call event.respondWith() if this is a navigation request
+    // for an HTML page.
+    if (event.request.mode === "navigate") {
+        if (event.request.url.match(/SignOut/)) {
+            return false;
+        }
+        event.respondWith(
+            (async () => {
+                try {
+                    const networkResponse = await fetch(event.request);
+                    return networkResponse;
+                } catch (error) {
+                    // catch is only triggered if an exception is thrown, which is likely
+                    // due to a network error.
+                    // If fetch() returns a valid HTTP response with a response code in
+                    // the 4xx or 5xx range, the catch() will NOT be called.
+                    console.log("Fetch failed; returning offline page instead.", error);
+
+                    const cache = await caches.open(CACHE_NAME);
+                    const cachedResponse = await cache.match(OFFLINE_URL);
+                    return cachedResponse;
+                }
+            })()
+        );
     }
-  }
 });
+
