@@ -18,7 +18,7 @@ let posicaoInicial
     latitude.innerHTML = posicaoInicial.coords.latitude
     longitude.innerHTML = posicaoInicial.coords.longitude
     const locations = document.getElementById("seila")
-    locations.innerHTML = '<iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q='+ posicaoInicial.coords.latitude + posicaoInicial.coords.longitude +'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>'
+    locations.innerHTML = '<iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q='+ posicaoInicial.coords.latitude + "," +posicaoInicial.coords.longitude +'&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>'
    
  }
 
